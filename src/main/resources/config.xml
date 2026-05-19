@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <database>
+        <url>jdbc:sqlite:beer.db</url>
+    </database>
+    <window>
+        <width>900</width>
+        <height>600</height>
+        <title>Beer Catalog</title>
+    </window>
+    <admin>
+        <username>admin</username>
+        <password>admin123</password>
+    </admin>
+</configuration>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="hr.algebra.ui.AdminController"
+            prefWidth="900" prefHeight="600">
+
+    <top>
+        <VBox>
+            <MenuBar>
+                <Menu text="Upravljanje">
+                    <MenuItem text="Piva" onAction="#handleBeers"/>
+                    <MenuItem text="Pivovare" onAction="#handleBreweries"/>
+                    <MenuItem text="Stilovi piva" onAction="#handleBeerStyles"/>
+                    <MenuItem text="Pivari" onAction="#handleBrewmasters"/>
+                    <MenuItem text="Zemlje" onAction="#handleCountries"/>
+                    <MenuItem text="Nagrade" onAction="#handleAwards"/>
+                </Menu>
+                <Menu text="Administracija">
+                    <MenuItem text="Obriši sve podatke" onAction="#handleClearData"/>
+                    <MenuItem text="Učitaj početne podatke" onAction="#handleLoadData"/>
+                </Menu>
+                <Menu text="Odjava">
+                    <MenuItem text="Odjavi se" onAction="#handleLogout"/>
+                </Menu>
+            </MenuBar>
+            <Label fx:id="welcomeLabel"
+                   style="-fx-font-size: 14; -fx-padding: 10; -fx-text-fill: #333;"/>
+        </VBox>
+    </top>
+
+    <center>
+        <StackPane fx:id="contentArea"
+                   style="-fx-background-color: #f9f9f9;">
+            <Label text="Odaberite opciju iz izbornika"
+                   style="-fx-font-size: 18; -fx-text-fill: #999;"/>
+        </StackPane>
+    </center>
+
+    <bottom>
+        <Label fx:id="statusLabel"
+               style="-fx-padding: 5 10; -fx-background-color: #eee; -fx-font-size: 12;"/>
+    </bottom>
+
+</BorderPane>

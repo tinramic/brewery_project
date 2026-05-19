@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="hr.algebra.ui.CountryController"
+      spacing="10"
+      style="-fx-padding: 20;">
+
+    <Label text="Upravljanje zemljama"
+           style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+
+    <HBox spacing="10">
+        <TextField fx:id="nameField" promptText="Naziv zemlje" prefWidth="250"/>
+        <Button text="Dodaj" onAction="#handleAdd"/>
+        <Button text="Ažuriraj" onAction="#handleUpdate"/>
+        <Button text="Obriši" onAction="#handleDelete"/>
+        <Button text="Odustani" onAction="#handleClear"/>
+    </HBox>
+
+    <TableView fx:id="tableView" prefHeight="400">
+        <columns>
+            <TableColumn fx:id="idColumn" text="ID" prefWidth="50"/>
+            <TableColumn fx:id="nameColumn" text="Naziv" prefWidth="300"/>
+        </columns>
+    </TableView>
+
+</VBox>

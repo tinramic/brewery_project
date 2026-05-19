@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="hr.algebra.ui.TastingListController"
+      spacing="20"
+      style="-fx-padding: 20;">
+
+    <VBox spacing="10" prefWidth="400">
+        <Label text="Dostupna piva"
+               style="-fx-font-size: 16; -fx-font-weight: bold;"/>
+        <Label text="Povuci pivo u degustacijsku listu →"
+               style="-fx-text-fill: #666; -fx-font-size: 12;"/>
+        <ListView fx:id="availableBeersListView" prefHeight="450"/>
+    </VBox>
+
+    <VBox spacing="10" prefWidth="400">
+        <Label text="Degustacijska lista"
+               style="-fx-font-size: 16; -fx-font-weight: bold;"/>
+        <Label text="Povuci pivo ovdje za dodavanje"
+               style="-fx-text-fill: #666; -fx-font-size: 12;"/>
+        <ListView fx:id="tastingListView" prefHeight="400"/>
+        <HBox spacing="10">
+            <Button text="Ukloni odabrano" onAction="#handleRemove"/>
+            <Button text="XML Export" onAction="#handleXmlExport"/>
+            <Button text="Očisti listu" onAction="#handleClear"/>
+        </HBox>
+    </VBox>
+
+</HBox>

@@ -1,0 +1,10 @@
+DELETE FROM tasting_list_item;
+DELETE FROM tasting_list;
+DELETE FROM beer_award;
+DELETE FROM beer;
+DELETE FROM award;
+DELETE FROM brewery;
+DELETE FROM brewmaster;
+DELETE FROM beer_style;
+DELETE FROM country;
+DELETE FROM user WHERE role != 'ADMINISTRATOR';

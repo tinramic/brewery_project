@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="hr.algebra.ui.UserController"
+            prefWidth="900" prefHeight="600">
+
+    <top>
+        <VBox>
+            <MenuBar>
+                <Menu text="Piva">
+                    <MenuItem text="Sva piva" onAction="#handleAllBeers"/>
+                </Menu>
+                <Menu text="Degustacijska lista">
+                    <MenuItem text="Moja lista" onAction="#handleTastingList"/>
+                </Menu>
+                <Menu text="Odjava">
+                    <MenuItem text="Odjavi se" onAction="#handleLogout"/>
+                </Menu>
+            </MenuBar>
+
+            <HBox spacing="10" style="-fx-padding: 10;">
+                <Label text="Pretraži:" style="-fx-font-weight: bold;"/>
+                <ComboBox fx:id="styleFilterComboBox" promptText="Stil piva" prefWidth="150"/>
+                <TextField fx:id="minAbvField" promptText="Min ABV" prefWidth="80"/>
+                <TextField fx:id="maxAbvField" promptText="Max ABV" prefWidth="80"/>
+                <Button text="Pretraži" onAction="#handleSearch"/>
+                <Button text="Prikaži sve" onAction="#handleAllBeers"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <StackPane fx:id="contentArea" style="-fx-background-color: #f9f9f9;">
+            <TableView fx:id="tableView" prefHeight="450">
+                <columns>
+                    <TableColumn fx:id="idColumn" text="ID" prefWidth="40"/>
+                    <TableColumn fx:id="nameColumn" text="Naziv" prefWidth="150"/>
+                    <TableColumn fx:id="abvColumn" text="ABV%" prefWidth="70"/>
+                    <TableColumn fx:id="ibuColumn" text="IBU" prefWidth="60"/>
+                    <TableColumn fx:id="srmColumn" text="SRM" prefWidth="60"/>
+                    <TableColumn fx:id="breweryColumn" text="Pivovara" prefWidth="150"/>
+                    <TableColumn fx:id="styleColumn" text="Stil" prefWidth="100"/>
+                    <TableColumn fx:id="countryColumn" text="Zemlja" prefWidth="100"/>
+                    <TableColumn fx:id="flavorColumn" text="Profil okusa" prefWidth="150"/>
+                </columns>
+            </TableView>
+        </StackPane>
+    </center>
+
+    <bottom>
+        <Label fx:id="statusLabel"
+               style="-fx-padding: 5 10; -fx-background-color: #eee; -fx-font-size: 12;"/>
+    </bottom>
+
+</BorderPane>
