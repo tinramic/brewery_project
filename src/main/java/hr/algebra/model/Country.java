@@ -1,6 +1,10 @@
 package hr.algebra.model;
 
 import java.util.Objects;
+import jakarta.xml.bind.annotation.*;
+
+@XmlRootElement(name = "country")
+@XmlAccessorType(XmlAccessType.FIELD)
 
 public class Country {
 

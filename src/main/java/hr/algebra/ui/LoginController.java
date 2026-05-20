@@ -3,6 +3,7 @@ package hr.algebra.ui;
 import hr.algebra.dao.UserRepository;
 import hr.algebra.model.Role;
 import hr.algebra.model.User;
+import hr.algebra.utils.SessionManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -37,6 +38,7 @@ public class LoginController {
             Optional<User> user = userRepository.login(username, password);
 
             if (user.isPresent()) {
+                SessionManager.getInstance().setCurrentUser(user.get());
                 LogUtils.log(username, "LOGIN", "Korisnik se prijavio u sustav");
                 if (user.get().getRole() == Role.ADMINISTRATOR) {
                     openAdminView(user.get());

@@ -1,6 +1,10 @@
 package hr.algebra.model;
 
 import java.util.Objects;
+import jakarta.xml.bind.annotation.*;
+
+@XmlRootElement(name = "brewmaster")
+@XmlAccessorType(XmlAccessType.FIELD)
 
 public class Brewmaster {
 

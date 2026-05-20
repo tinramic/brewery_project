@@ -1,13 +1,81 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <logs>
+                        
+    
+    
+    
+    
+    <log>
+                                                
+        
+        
+        
+        
+        <timestamp>2026-05-12 17:17:52</timestamp>
+                                                
+        
+        
+        
+        
+        <user>admin</user>
+                                                
+        
+        
+        
+        
+        <action>LOGIN</action>
+                                                
+        
+        
+        
+        
+        <details>Korisnik se prijavio u sustav</details>
+                                            
+    
+    
+    
+    
+    </log>
+                    
+    
+    
+    
+    
+    <log>
+                                        
+        
+        
+        
+        <timestamp>2026-05-12 17:20:44</timestamp>
+                                        
+        
+        
+        
+        <user>admin</user>
+                                        
+        
+        
+        
+        <action>ADD_BEER</action>
+                                        
+        
+        
+        
+        <details>Dodano pivo: Stella Artois</details>
+                                    
+    
+    
+    
+    </log>
                 
+    
     
     
     <log>
                                 
         
         
-        <timestamp>2026-05-12 17:17:52</timestamp>
+        <timestamp>2026-05-12 17:27:39</timestamp>
                                 
         
         
@@ -30,16 +98,16 @@
     <log>
                         
         
-        <timestamp>2026-05-12 17:20:44</timestamp>
+        <timestamp>2026-05-19 19:07:44</timestamp>
                         
         
         <user>admin</user>
                         
         
-        <action>ADD_BEER</action>
+        <action>LOGIN</action>
                         
         
-        <details>Dodano pivo: Stella Artois</details>
+        <details>Korisnik se prijavio u sustav</details>
                     
     
     </log>
@@ -47,7 +115,7 @@
     
     <log>
                 
-        <timestamp>2026-05-12 17:27:39</timestamp>
+        <timestamp>2026-05-20 18:16:45</timestamp>
                 
         <user>admin</user>
                 
@@ -58,9 +126,9 @@
     </log>
     
     <log>
-        <timestamp>2026-05-19 19:07:44</timestamp>
+        <timestamp>2026-05-20 18:17:02</timestamp>
         <user>admin</user>
-        <action>LOGIN</action>
-        <details>Korisnik se prijavio u sustav</details>
+        <action>XML_BACKUP</action>
+        <details>Kreiran backup: backup.xml</details>
     </log>
 </logs>

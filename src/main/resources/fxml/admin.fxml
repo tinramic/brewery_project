@@ -21,6 +21,7 @@
                 <Menu text="Administracija">
                     <MenuItem text="Obriši sve podatke" onAction="#handleClearData"/>
                     <MenuItem text="Učitaj početne podatke" onAction="#handleLoadData"/>
+                    <MenuItem text="XML Backup" onAction="#handleXmlBackup"/>
                 </Menu>
                 <Menu text="Odjava">
                     <MenuItem text="Odjavi se" onAction="#handleLogout"/>

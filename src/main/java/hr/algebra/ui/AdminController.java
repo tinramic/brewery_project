@@ -1,7 +1,10 @@
 package hr.algebra.ui;
 
+import hr.algebra.model.User;
 import hr.algebra.utils.DatabaseUtils;
 import hr.algebra.utils.LogUtils;
+import hr.algebra.utils.SessionManager;
+import hr.algebra.xml.XmlBackupUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -9,10 +12,12 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import hr.algebra.utils.DataLoaderService;
 import javafx.concurrent.Task;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Optional;
 
@@ -24,7 +29,9 @@ public class AdminController {
 
     @FXML
     public void initialize() {
-        welcomeLabel.setText("Dobrodošli, Administrator!");
+        User currentUser = SessionManager.getInstance().getCurrentUser();
+        welcomeLabel.setText("Dobrodošli, " +
+                (currentUser != null ? currentUser.getUsername() : "Administrator") + "!");
         statusLabel.setText("Spremni za rad.");
     }
 
@@ -102,6 +109,8 @@ public class AdminController {
 
     @FXML
     private void handleLogout() {
+        SessionManager.getInstance().clearSession();
+        LogUtils.log("admin", "LOGOUT", "Administrator se odjavio");
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
             Stage stage = (Stage) contentArea.getScene().getWindow();
@@ -123,6 +132,28 @@ public class AdminController {
             contentArea.getChildren().setAll(content);
         } catch (IOException e) {
             setStatus("Greška pri učitavanju: " + fxmlPath);
+        }
+    }
+
+    @FXML
+    private void handleXmlBackup() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Spremi XML Backup");
+        fileChooser.getExtensionFilters().add(
+                new FileChooser.ExtensionFilter("XML datoteke", "*.xml")
+        );
+        fileChooser.setInitialFileName("backup.xml");
+
+        File file = fileChooser.showSaveDialog(contentArea.getScene().getWindow());
+        if (file != null) {
+            try {
+                XmlBackupUtils.createBackup(file.getAbsolutePath());
+                LogUtils.log("admin", "XML_BACKUP", "Kreiran backup: " + file.getName());
+                setStatus("Backup uspješno kreiran!");
+                showAlert(Alert.AlertType.INFORMATION, "Uspjeh", "Backup uspješno kreiran!");
+            } catch (Exception e) {
+                showAlert(Alert.AlertType.ERROR, "Greška", "Greška pri kreiranju backupa: " + e.getMessage());
+            }
         }
     }
 
